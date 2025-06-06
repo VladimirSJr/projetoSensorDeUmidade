@@ -4,12 +4,12 @@
 #define pinSolo A0
 
 //WiFi
-const char* SSID = "*********";
+const char* SSID = "*******";
 const char* PASSWORD = "*********";
 WiFiClient wifiClient;
 
 //MQTT Server
-const char* BROKER_MQTT = "iot.eclipse.org";
+const char* BROKER_MQTT = "mqtt.eclipseprojects.io";
 int BROKER_PORT = 1883;
 
 #define ID_MQTT "BCI01"
@@ -55,6 +55,7 @@ void conectaWifi(){
   Serial.print(SSID);
   Serial.println(" Aguarde!");
 
+  WiFi.mode(WIFI_STA);
   WiFi.begin(SSID, PASSWORD);
   while(WiFi.status() != WL_CONNECTED){
     delay(500);
